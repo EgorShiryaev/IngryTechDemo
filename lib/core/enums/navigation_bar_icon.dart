@@ -1,4 +1,4 @@
-enum NavigationBarIcon { map, filter, list, user }
+enum NavigationBarIcon { map, list, filter, user }
 
 extension NavigationBarIconEx on NavigationBarIcon {
   String get fullPath => 'assets/icons/$name.svg';
