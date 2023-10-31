@@ -1,14 +1,17 @@
 name: ingry_tech
 description: A new Flutter project.
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.1.2 <4.0.0'
+  sdk: ">=3.1.2 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.4.5
+  flutter_svg: ^2.0.8
+  riverpod: ^2.4.5
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +20,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/icons/
