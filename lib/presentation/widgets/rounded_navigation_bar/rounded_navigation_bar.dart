@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/enums/navigation_bar_icon.dart';
+import '../../themes/rounded_navigation_bar_theme_data.dart';
 import 'rounded_navigation_bar_item.dart';
 
 class RoundedNavigationBar extends StatelessWidget {
@@ -7,17 +8,16 @@ class RoundedNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme =
+        NavigationBarTheme.of(context) as RoundedNavigationBarThemeData;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8).copyWith(bottom: 8),
+      padding: theme.margin ?? EdgeInsets.zero,
       child: ClipRRect(
-        borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(16),
-          bottom: Radius.circular(40),
-        ),
+        borderRadius: theme.borderRadius ?? BorderRadius.zero,
         child: ColoredBox(
-          color: const Color(0xFFE1E000),
+          color: theme.backgroundColor ?? Colors.transparent,
           child: SizedBox(
-            height: 90,
+            height: theme.height,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

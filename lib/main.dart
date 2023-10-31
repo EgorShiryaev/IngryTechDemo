@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'presentation/pages/home_page.dart';
+import 'presentation/themes/app_theme.dart';
 
 void main() {
   runApp(const ProviderScope(child: App()));
@@ -12,6 +13,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomePage());
+    return MaterialApp(
+      theme: AppTheme.light,
+      home: const HomePage(),
+    );
   }
 }

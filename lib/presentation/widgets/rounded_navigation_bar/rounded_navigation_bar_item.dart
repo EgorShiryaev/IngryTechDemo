@@ -4,21 +4,22 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../core/enums/navigation_bar_icon.dart';
 import '../../controllers/navigation_bar_notifier.dart';
-
-const double iconSize = 32;
+import '../../themes/rounded_navigation_bar_theme_data.dart';
 
 class RoundedNavigationBarItem extends ConsumerWidget {
   final int index;
-  const RoundedNavigationBarItem({
-    super.key,
-    required this.index,
-  });
+  const RoundedNavigationBarItem({super.key, required this.index});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final theme =
+        NavigationBarTheme.of(context) as RoundedNavigationBarThemeData;
+
     final isSelected = index == ref.watch(navigationBarNotifierProvider);
     final provider = ref.read(navigationBarNotifierProvider.notifier);
-    final currentIcon = NavigationBarIcon.values[index];
+    final icon = NavigationBarIcon.values[index];
+
+    final iconTheme = theme.iconTheme?.resolve({});
     return Expanded(
       child: InkWell(
         onTap: () => provider.changeIndex(index),
@@ -26,19 +27,17 @@ class RoundedNavigationBarItem extends ConsumerWidget {
           padding: const EdgeInsets.all(2),
           child: DecoratedBox(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: const Radius.circular(15),
-                topRight: const Radius.circular(15),
-                bottomLeft: Radius.circular(currentIcon.isFirst ? 40 : 15),
-                bottomRight: Radius.circular(currentIcon.isLast ? 40 : 15),
+              borderRadius: theme.borderRadius?.copyWith(
+                bottomLeft: !icon.isFirst ? theme.borderRadius?.topLeft : null,
+                bottomRight: !icon.isLast ? theme.borderRadius?.topRight : null,
               ),
-              color: isSelected ? const Color(0xFFEBEA00) : Colors.transparent,
+              color: isSelected ? theme.indicatorColor : Colors.transparent,
             ),
             child: SvgPicture.asset(
-              currentIcon.fullPath,
+              icon.fullPath,
               fit: BoxFit.none,
-              width: iconSize,
-              height: iconSize,
+              width: iconTheme?.size,
+              height: iconTheme?.size,
             ),
           ),
         ),
