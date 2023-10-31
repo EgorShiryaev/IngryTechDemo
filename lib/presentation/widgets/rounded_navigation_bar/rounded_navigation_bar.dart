@@ -16,11 +16,15 @@ class RoundedNavigationBar extends StatelessWidget {
         ),
         child: ColoredBox(
           color: const Color(0xFFE1E000),
-          child: Row(
-            children: [
-              for (var i = 0; i < NavigationBarIcon.values.length; i++)
-                RoundedNavigationBarItem(index: i),
-            ],
+          child: SizedBox(
+            height: 90,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                for (var i = 0; i < NavigationBarIcon.values.length; i++)
+                  RoundedNavigationBarItem(index: i),
+              ],
+            ),
           ),
         ),
       ),

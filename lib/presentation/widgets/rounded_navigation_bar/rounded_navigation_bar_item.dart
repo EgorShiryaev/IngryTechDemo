@@ -20,29 +20,25 @@ class RoundedNavigationBarItem extends ConsumerWidget {
     final provider = ref.read(navigationBarNotifierProvider.notifier);
     final currentIcon = NavigationBarIcon.values[index];
     return Expanded(
-      child: AspectRatio(
-        aspectRatio: 1,
-        child: InkWell(
-          onTap: () => provider.changeIndex(index),
-          child: Padding(
-            padding: const EdgeInsets.all(2),
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: const Radius.circular(15),
-                  topRight: const Radius.circular(15),
-                  bottomLeft: Radius.circular(currentIcon.isFirst ? 40 : 15),
-                  bottomRight: Radius.circular(currentIcon.isLast ? 40 : 15),
-                ),
-                color:
-                    isSelected ? const Color(0xFFEBEA00) : Colors.transparent,
+      child: InkWell(
+        onTap: () => provider.changeIndex(index),
+        child: Padding(
+          padding: const EdgeInsets.all(2),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: const Radius.circular(15),
+                topRight: const Radius.circular(15),
+                bottomLeft: Radius.circular(currentIcon.isFirst ? 40 : 15),
+                bottomRight: Radius.circular(currentIcon.isLast ? 40 : 15),
               ),
-              child: SvgPicture.asset(
-                currentIcon.fullPath,
-                fit: BoxFit.none,
-                width: iconSize,
-                height: iconSize,
-              ),
+              color: isSelected ? const Color(0xFFEBEA00) : Colors.transparent,
+            ),
+            child: SvgPicture.asset(
+              currentIcon.fullPath,
+              fit: BoxFit.none,
+              width: iconSize,
+              height: iconSize,
             ),
           ),
         ),
