@@ -17,7 +17,7 @@ class ChargingPointSmallModel {
   // Тип станции
   final String cpType;
   // Статус
-  final CharginPointStatus status;
+  final ChargingPointStatus status;
   // Местонахождение
   final LocationSmallModel location;
   // Зарядки
