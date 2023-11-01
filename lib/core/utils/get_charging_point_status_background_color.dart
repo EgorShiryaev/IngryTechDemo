@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/models/charging_point_status.dart';
 
-Color getElectricStationStatusBackgroundColor(ChargingPointStatus status) {
+Color getChargingPointStatusBackgroundColor(ChargingPointStatus status) {
   switch (status) {
     case ChargingPointStatus.gettingReadyForLaunch:
       return const Color(0xFF00A24D);

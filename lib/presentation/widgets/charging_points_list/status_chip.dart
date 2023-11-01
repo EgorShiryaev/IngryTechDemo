@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../../core/utils/get_electric_station_status_background_color.dart';
+import '../../../core/utils/get_charging_point_status_background_color.dart';
 import '../../../data/models/charging_point_status.dart';
 import 'info_chip.dart';
 
@@ -13,7 +13,7 @@ class StatusChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = getElectricStationStatusBackgroundColor(status);
+    final backgroundColor = getChargingPointStatusBackgroundColor(status);
 
     return Align(
       alignment: Alignment.centerRight,
