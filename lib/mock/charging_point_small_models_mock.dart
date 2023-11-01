@@ -5,7 +5,7 @@ final chargingPointSmallModelsMock = [
     'id': '121',
     'cpNumber': '5403001',
     'cpType': 'dc',
-    'status': 'OPERATIVE',
+    'statusId': 1,
     'location': {
       'id': '1',
       'title': 'Орджоникидзе 32',
@@ -71,7 +71,7 @@ final chargingPointSmallModelsMock = [
     'id': '139',
     'cpNumber': '5401801',
     'cpType': 'dc',
-    'status': 'REPAIR',
+    'statusId': 2,
     'location': {
       'id': '6',
       'title': 'Первомайская 47',
@@ -120,7 +120,7 @@ final chargingPointSmallModelsMock = [
     'id': '140',
     'cpNumber': '5401601',
     'cpType': 'dc',
-    'status': 'GETTING READY FOR LAUNCH',
+    'statusId': 3,
     'location': {
       'id': '7',
       'title': 'Петухова 16',
@@ -169,7 +169,7 @@ final chargingPointSmallModelsMock = [
     'id': '141',
     'cpNumber': '5402201',
     'cpType': 'dc',
-    'status': 'INOPERATIVE',
+    'statusId': 4,
     'location': {
       'id': '8',
       'title': 'Сбербанк Бердск',
@@ -218,7 +218,7 @@ final chargingPointSmallModelsMock = [
     'id': '142',
     'cpNumber': '5402001',
     'cpType': 'dc',
-    'status': 'UNSUPERVISED',
+    'statusId': 5,
     'location': {
       'id': '9',
       'title': 'Объединения 27',

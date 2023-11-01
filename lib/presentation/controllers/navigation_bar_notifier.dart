@@ -6,7 +6,7 @@ final navigationBarNotifierProvider =
 class NavigationBarNotifier extends Notifier<int> {
   @override
   int build() {
-    return 0;
+    return 1;
   }
 
   // ignore: use_setters_to_change_properties

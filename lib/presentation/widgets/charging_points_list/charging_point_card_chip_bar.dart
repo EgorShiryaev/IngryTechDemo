@@ -14,7 +14,7 @@ class ChargingPointCardChipBar extends StatelessWidget {
     return Row(
       children: [
         Text(
-          '№${model.cpNumber}',
+          '№${model.number}',
           style: const TextStyle(
             color: Color(0xFF8A8E8F),
             fontSize: 10,

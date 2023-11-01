@@ -1,14 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'charging_point_small_model.dart';
+part of 'charging_point_full_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-ChargingPointSmallModel _$ChargingPointSmallModelFromJson(
+ChargingPointFullModel _$ChargingPointFullModelFromJson(
         Map<String, dynamic> json) =>
-    ChargingPointSmallModel(
+    ChargingPointFullModel(
+      power: (json['power'] as num).toDouble(),
+      reservationLimit: json['reservationLimit'] as int,
+      model: json['model'] as String,
       id: json['id'] as String,
       number: json['cpNumber'] as String,
       type: json['cpType'] as String,
@@ -20,8 +23,8 @@ ChargingPointSmallModel _$ChargingPointSmallModelFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$ChargingPointSmallModelToJson(
-        ChargingPointSmallModel instance) =>
+Map<String, dynamic> _$ChargingPointFullModelToJson(
+        ChargingPointFullModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'cpNumber': instance.number,
@@ -29,6 +32,9 @@ Map<String, dynamic> _$ChargingPointSmallModelToJson(
       'statusId': _$ChargingPointStatusEnumMap[instance.status]!,
       'location': instance.location,
       'connectors': instance.connectors,
+      'power': instance.power,
+      'reservationLimit': instance.reservationLimit,
+      'model': instance.model,
     };
 
 const _$ChargingPointStatusEnumMap = {

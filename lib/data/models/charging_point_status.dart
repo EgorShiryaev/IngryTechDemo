@@ -1,15 +1,20 @@
 import 'package:json_annotation/json_annotation.dart';
 
 enum ChargingPointStatus {
-  @JsonValue('OPERATIVE')
+  // B работе
+  @JsonValue(1)
   operative,
-  @JsonValue('REPAIR')
+  // Ремонт
+  @JsonValue(2)
   repair,
-  @JsonValue('GETTING READY FOR LAUNCH')
+  // Подготовка к запуску
+  @JsonValue(3)
   gettingReadyForLaunch,
-  @JsonValue('INOPERATIVE')
+  // Не в работе
+  @JsonValue(4)
   inoperative,
-  @JsonValue('UNSUPERVISED')
+  // Автономно
+  @JsonValue(5)
   unsupervised,
 }
 
@@ -20,7 +25,6 @@ extension ChargingPointStatusEx on ChargingPointStatus {
         return 'В работе';
       case ChargingPointStatus.repair:
         return 'Ремонт';
-
       case ChargingPointStatus.inoperative:
         return 'Не в работе';
       case ChargingPointStatus.gettingReadyForLaunch:

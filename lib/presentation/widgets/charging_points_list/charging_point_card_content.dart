@@ -18,7 +18,7 @@ class ChargingPointCardContent extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ChargingPointAvatar(cpType: model.cpType),
+        ChargingPointAvatar(cpType: model.type),
         const SizedBox(width: 12),
         Expanded(
           child: Column(

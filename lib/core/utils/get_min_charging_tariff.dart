@@ -1,8 +1,8 @@
-import '../../data/models/charging_connector_small_model.dart';
+import '../../data/models/connector_small_model.dart';
 import '../../data/models/tariff_small_model.dart';
 
 TariffSmallModel? getMinChargingTariff(
-  List<ChargingConnectorSmallModel> connectors,
+  List<ConnectorSmallModel> connectors,
 ) {
   TariffSmallModel? tariff;
 
