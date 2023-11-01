@@ -13,13 +13,11 @@ ChargingConnectorSmallModel _$ChargingConnectorSmallModelFromJson(
       tariffs: (json['tariffs'] as List<dynamic>)
           .map((e) => TariffSmallModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-    )..chargingTariff = TariffSmallModel.fromJson(
-        json['chargingTariff'] ['data'] as Map<String, dynamic>);
+    );
 
 Map<String, dynamic> _$ChargingConnectorSmallModelToJson(
         ChargingConnectorSmallModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'tariffs': instance.tariffs,
-      'chargingTariff': instance.chargingTariff,
     };

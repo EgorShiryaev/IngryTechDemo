@@ -19,10 +19,7 @@ ChargingPointSmallModel _$ChargingPointSmallModelFromJson(
           .map((e) =>
               ChargingConnectorSmallModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-    )..minChargingTariff = json['minChargingTariff'] == null
-        ? null
-        : TariffSmallModel.fromJson(
-            json['minChargingTariff'] as Map<String, dynamic>);
+    );
 
 Map<String, dynamic> _$ChargingPointSmallModelToJson(
         ChargingPointSmallModel instance) =>
@@ -33,7 +30,6 @@ Map<String, dynamic> _$ChargingPointSmallModelToJson(
       'status': _$CharginPointStatusEnumMap[instance.status]!,
       'location': instance.location,
       'connectors': instance.connectors,
-      'minChargingTariff': instance.minChargingTariff,
     };
 
 const _$CharginPointStatusEnumMap = {
