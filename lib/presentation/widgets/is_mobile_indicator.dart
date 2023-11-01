@@ -1,10 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../controllers/platform_notifier.dart';
 
-const maxMobileWidth = 950;
+const double maxMobileWidth = 950;
 
 class IsMobileIndicator extends ConsumerWidget {
   final Widget child;
