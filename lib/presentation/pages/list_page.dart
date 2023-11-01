@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../core/utils/get_icon_full_path.dart';
 import '../widgets/charging_points_list/charging_points_list.dart';
+import '../widgets/platform_offset.dart';
 
 class ListPage extends StatelessWidget {
   const ListPage({super.key});
@@ -16,13 +17,15 @@ class ListPage extends StatelessWidget {
           trailing: [_SearchGlassIcon()],
         ),
       ),
-      body: const ChargingPointsList(),
+      body: const PlatformOffset(
+        child: ChargingPointsList(),
+      ),
     );
   }
 }
 
 class _SearchGlassIcon extends StatelessWidget {
-  const _SearchGlassIcon({super.key});
+  const _SearchGlassIcon();
 
   static const double size = 24;
 
