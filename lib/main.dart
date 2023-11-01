@@ -3,9 +3,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'presentation/pages/home_page.dart';
 import 'presentation/themes/app_theme.dart';
+import 'presentation/widgets/is_mobile_indicator.dart';
 
 void main() {
-  runApp(const ProviderScope(child: App()));
+  runApp(
+    const ProviderScope(
+      child: IsMobileIndicator(
+        child: App(),
+      ),
+    ),
+  );
 }
 
 class App extends StatelessWidget {

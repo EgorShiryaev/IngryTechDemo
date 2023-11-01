@@ -1,4 +1,4 @@
-import 'package:ingry_tech/data/models/charging_point_small_model.dart';
+import '../data/models/charging_point_small_model.dart';
 
 final chargingPointSmallModelsMock = [
   {
@@ -71,7 +71,7 @@ final chargingPointSmallModelsMock = [
     'id': '139',
     'cpNumber': '5401801',
     'cpType': 'dc',
-    'status': 'OPERATIVE',
+    'status': 'REPAIR',
     'location': {
       'id': '6',
       'title': 'Первомайская 47',
@@ -120,7 +120,7 @@ final chargingPointSmallModelsMock = [
     'id': '140',
     'cpNumber': '5401601',
     'cpType': 'dc',
-    'status': 'OPERATIVE',
+    'status': 'GETTING READY FOR LAUNCH',
     'location': {
       'id': '7',
       'title': 'Петухова 16',
@@ -169,7 +169,7 @@ final chargingPointSmallModelsMock = [
     'id': '141',
     'cpNumber': '5402201',
     'cpType': 'dc',
-    'status': 'OPERATIVE',
+    'status': 'INOPERATIVE',
     'location': {
       'id': '8',
       'title': 'Сбербанк Бердск',
@@ -218,7 +218,7 @@ final chargingPointSmallModelsMock = [
     'id': '142',
     'cpNumber': '5402001',
     'cpType': 'dc',
-    'status': 'OPERATIVE',
+    'status': 'UNSUPERVISED',
     'location': {
       'id': '9',
       'title': 'Объединения 27',
