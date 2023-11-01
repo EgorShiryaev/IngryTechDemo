@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'charging_connector_small_model.dart';
+part of 'connector_small_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

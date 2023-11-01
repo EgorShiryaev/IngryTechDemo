@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 import '../../core/utils/get_charging_tariff.dart';
 import 'tariff_small_model.dart';
 
-part 'charging_connector_small_model.g.dart';
+part 'connector_small_model.g.dart';
 
 @JsonSerializable()
 class ChargingConnectorSmallModel {
