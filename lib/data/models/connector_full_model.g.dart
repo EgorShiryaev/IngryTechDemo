@@ -8,8 +8,9 @@ part of 'connector_full_model.dart';
 
 ConnectorFullModel _$ConnectorFullModelFromJson(Map<String, dynamic> json) =>
     ConnectorFullModel(
-      type: $enumDecode(_$ConnectorTypeEnumMap, json['typeId']),
-      status: $enumDecode(_$ConnectorTypeEnumMap, json['statusId']),
+      type: $enumDecode(
+          _$ConnectorTypeEnumMap, json['typeId'], ConnectorType.other),
+      status: $enumDecode(_$ConnectorStatusEnumMap, json['statusId']),
       number: json['number'] as int,
       id: json['id'] as String,
       tariffs: (json['tariffs'] as List<dynamic>)
@@ -23,7 +24,7 @@ Map<String, dynamic> _$ConnectorFullModelToJson(ConnectorFullModel instance) =>
       'tariffs': instance.tariffs,
       'chargingTariff': instance.chargingTariff,
       'typeId': _$ConnectorTypeEnumMap[instance.type]!,
-      'statusId': _$ConnectorTypeEnumMap[instance.status]!,
+      'statusId': _$ConnectorStatusEnumMap[instance.status]!,
       'number': instance.number,
     };
 
@@ -35,5 +36,17 @@ const _$ConnectorTypeEnumMap = {
   ConnectorType.iec62196t1combo: 10,
   ConnectorType.gbtDc: 12,
   ConnectorType.domesticC: 14,
-  ConnectorType.other: 'other',
+};
+
+const _$ConnectorStatusEnumMap = {
+  ConnectorStatus.available: 1,
+  ConnectorStatus.preparing: 2,
+  ConnectorStatus.charging: 3,
+  ConnectorStatus.suspendedevse: 4,
+  ConnectorStatus.suspendedev: 5,
+  ConnectorStatus.finishing: 6,
+  ConnectorStatus.reserved: 7,
+  ConnectorStatus.unavailable: 8,
+  ConnectorStatus.faulted: 9,
+  ConnectorStatus.occupied: 10,
 };

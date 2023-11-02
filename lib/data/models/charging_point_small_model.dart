@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../core/utils/get_min_charging_tariff.dart';
-import 'connector_small_model.dart';
 import 'charging_point_status.dart';
+import 'connector_small_model.dart';
 import 'location_small_model.dart';
 import 'tariff_small_model.dart';
 

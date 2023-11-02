@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../core/utils/get_charging_tariff.dart';
 import 'connector_small_model.dart';
+import 'connector_status.dart';
 import 'connector_type.dart';
 import 'tariff_small_model.dart';
 
@@ -14,7 +14,7 @@ class ConnectorFullModel extends ConnectorSmallModel {
   final ConnectorType type;
   // Статус
   @JsonKey(name: 'statusId')
-  final ConnectorType status;
+  final ConnectorStatus status;
   // Id для станции зарядки
   final int number;
 

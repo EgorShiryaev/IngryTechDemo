@@ -30,7 +30,7 @@ final chargingPointFullModelMock = ChargingPointFullModel.fromJson({
     'workingHoursStart': '00:00',
     'workingHoursEnd': '24:00',
     'region': 'Новосибирская область',
-    'regionId': '52'
+    'regionId': '52',
   },
   'connectors': {
     'data': [
@@ -54,7 +54,7 @@ final chargingPointFullModelMock = ChargingPointFullModel.fromJson({
             'uom': 'kwh',
             'price': 15,
             'threshold': null,
-            'company': null
+            'company': null,
           },
           {
             'id': '15',
@@ -62,9 +62,9 @@ final chargingPointFullModelMock = ChargingPointFullModel.fromJson({
             'uom': 'minutes',
             'price': 5,
             'threshold': null,
-            'company': null
+            'company': null,
           }
-        ]
+        ],
       },
       {
         'id': '3',
@@ -86,7 +86,7 @@ final chargingPointFullModelMock = ChargingPointFullModel.fromJson({
             'uom': 'kwh',
             'price': 15,
             'threshold': null,
-            'company': null
+            'company': null,
           },
           {
             'id': '15',
@@ -94,9 +94,9 @@ final chargingPointFullModelMock = ChargingPointFullModel.fromJson({
             'uom': 'minutes',
             'price': 5,
             'threshold': null,
-            'company': null
+            'company': null,
           }
-        ]
+        ],
       },
       {
         'id': '4',
@@ -118,7 +118,7 @@ final chargingPointFullModelMock = ChargingPointFullModel.fromJson({
             'uom': 'kwh',
             'price': 8,
             'threshold': null,
-            'company': null
+            'company': null,
           },
           {
             'id': '15',
@@ -126,10 +126,10 @@ final chargingPointFullModelMock = ChargingPointFullModel.fromJson({
             'uom': 'minutes',
             'price': 5,
             'threshold': null,
-            'company': null
+            'company': null,
           }
-        ]
+        ],
       }
-    ]
-  }
+    ],
+  },
 });

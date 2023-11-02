@@ -22,7 +22,6 @@ enum ConnectorType {
   // Euro 220V
   @JsonValue(14)
   domesticC,
-  // TODO add default
   // Любые другие стандарты
   other
 }
