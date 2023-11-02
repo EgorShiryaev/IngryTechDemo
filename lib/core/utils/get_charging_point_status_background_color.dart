@@ -8,7 +8,9 @@ Color getChargingPointStatusBackgroundColor(ChargingPointStatus status) {
       return const Color(0xFF00A24D);
     case ChargingPointStatus.unsupervised:
       return const Color(0xFFF45C33);
-    default:
+    case ChargingPointStatus.operative:
+    case ChargingPointStatus.repair:
+    case ChargingPointStatus.inoperative:
       return Colors.transparent;
   }
 }
