@@ -7,6 +7,8 @@ import '../widgets/rounded_navigation_bar/rounded_navigation_bar.dart';
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
+  static const routeName = '/';
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return const Scaffold(
