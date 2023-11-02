@@ -1,6 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'charging_point_small_model.dart';
+import 'charging_point_status.dart';
+import 'connector_small_model.dart';
+import 'location_small_model.dart';
+import 'tariff_small_model.dart';
 
 part 'charging_point_full_model.g.dart';
 
