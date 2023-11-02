@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/models/charging_point_small_model.dart';
-import '../../pages/args/charging_point_page_args.dart';
+import '../../../mock/charging_point_full_model_mock.dart';
+import '../../controllers/charging_point_notifier.dart';
 import '../../pages/charging_point_page.dart';
 import 'charging_point_card_content.dart';
 
-class ChargingPointCard extends StatelessWidget {
+class ChargingPointCard extends ConsumerWidget {
   final ChargingPointSmallModel model;
   const ChargingPointCard({super.key, required this.model});
 
@@ -13,15 +15,19 @@ class ChargingPointCard extends StatelessWidget {
     Navigator.pushNamed(
       context,
       ChargingPointPage.routeName,
-      arguments: ChargingPointPageArgs(model: model),
     );
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Card(
       child: InkWell(
-        onTap: () => openPage(context),
+        onTap: () {
+          ref
+              .read(chargingPointNotifierProvider.notifier)
+              .select(chargingPointFullModelMock);
+          openPage(context);
+        },
         borderRadius: const BorderRadius.all(Radius.circular(15)),
         child: Padding(
           padding: const EdgeInsets.all(8),

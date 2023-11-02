@@ -8,13 +8,15 @@ part 'location_full_model.g.dart';
 @JsonSerializable()
 class LocationFullModel extends LocationSmallModel {
   // Широта
-  final String latitude;
+  final double latitude;
   // Долгота
-  final String longitude;
+  final double longitude;
   // Доступ к парковке
   final String parkingAccess;
-   // Время работы
+  // Время работы
   final WorkingHoursModel workingHours;
+  // Бесплатная парковка
+  late final bool isFreeParking;
 
   LocationFullModel({
     required this.latitude,
@@ -24,7 +26,7 @@ class LocationFullModel extends LocationSmallModel {
     required super.id,
     required super.title,
     required super.address,
-  });
+  }) : isFreeParking = parkingAccess == 'free';
 
   factory LocationFullModel.fromJson(Map<String, dynamic> json) =>
       _$LocationFullModelFromJson(json);

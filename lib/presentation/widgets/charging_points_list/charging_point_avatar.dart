@@ -3,23 +3,28 @@ import 'package:flutter/widgets.dart';
 import '../../../core/utils/get_cp_type_avatar_background_color.dart';
 
 class ChargingPointAvatar extends StatelessWidget {
-  final String cpType;
-  const ChargingPointAvatar({super.key, required this.cpType});
+  final String type;
+  final double size;
+  const ChargingPointAvatar({
+    super.key,
+    required this.type,
+    this.size = 40,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final color = getCpTypeAvatarBackgroundColor(cpType);
+    final color = getCpTypeAvatarBackgroundColor(type);
     return DecoratedBox(
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(size / 5),
       ),
       child: SizedBox.square(
-        dimension: 40,
+        dimension: size,
         child: Center(
           child: Text(
-            cpType.toUpperCase(),
-            style: const TextStyle(fontSize: 20),
+            type.toUpperCase(),
+            style: TextStyle(fontSize: size / 2),
           ),
         ),
       ),

@@ -8,11 +8,10 @@ part of 'location_full_model.dart';
 
 LocationFullModel _$LocationFullModelFromJson(Map<String, dynamic> json) =>
     LocationFullModel(
-      latitude: json['latitude'] as String,
-      longitude: json['longitude'] as String,
+      latitude: json['latitude'] as double,
+      longitude: json['longitude'] as double,
       parkingAccess: json['parkingAccess'] as String,
-      workingHours: WorkingHoursModel.fromJson(
-          json['workingHours'] as Map<String, dynamic>),
+      workingHours: WorkingHoursModel.fromJson(json as Map<String, dynamic>),
       id: json['id'] as String,
       title: json['title'] as String,
       address: json['address'] as String,

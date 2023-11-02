@@ -11,14 +11,14 @@ ChargingPointFullModel _$ChargingPointFullModelFromJson(
     ChargingPointFullModel(
       power: (json['power'] as num).toDouble(),
       reservationLimit: json['reservationLimit'] as int,
-      model: json['model'] as String,
+      stationModel: json['model'] as String,
       id: json['id'] as String,
       number: json['cpNumber'] as String,
       type: json['cpType'] as String,
       status: $enumDecode(_$ChargingPointStatusEnumMap, json['statusId']),
       location:
-          LocationSmallModel.fromJson(json['location'] as Map<String, dynamic>),
-      connectors: (json['connectors']['data'] as List<dynamic>)
+          LocationFullModel.fromJson(json['location'] as Map<String, dynamic>),
+     connectors: (json['connectors']['data'] as List<dynamic>)
           .map((e) => ConnectorSmallModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -34,7 +34,7 @@ Map<String, dynamic> _$ChargingPointFullModelToJson(
       'connectors': instance.connectors,
       'power': instance.power,
       'reservationLimit': instance.reservationLimit,
-      'model': instance.model,
+      'model': instance.stationModel,
     };
 
 const _$ChargingPointStatusEnumMap = {
