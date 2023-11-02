@@ -6,6 +6,7 @@ import '../../controllers/charging_point_notifier.dart';
 import '../platform_offset.dart';
 import 'charging_point_info.dart';
 import 'charging_point_location_view.dart';
+import 'loading_maks.dart';
 import 'status_chip.dart';
 
 class ChargingPointPageBody extends ConsumerWidget {
@@ -32,19 +33,11 @@ class ChargingPointPageBody extends ConsumerWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
             ],
           ),
         ),
         if (!isChargingPointFullModel(model))
-          const ColoredBox(
-            color: Color(0x88FFFFFF),
-            child: Center(
-              child: CircularProgressIndicator(
-                color: Color(0xFFE1E000),
-              ),
-            ),
-          ),
+          const LoadingMask(),
       ],
     );
   }
