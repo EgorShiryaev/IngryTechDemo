@@ -39,7 +39,18 @@ class AppTheme {
         hintStyle: MaterialStatePropertyAll(
           TextStyle(fontSize: 14, color: Color(0xFF8A8E8F)),
         ),
-        padding: MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 12)),
+        padding: MaterialStatePropertyAll(
+          EdgeInsets.symmetric(horizontal: 12),
+        ),
+      ),
+      cardTheme: const CardTheme(
+        color: Color(0xFFF5F5F5),
+        elevation: 0,
+        margin: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        ),
+        
       ),
     );
   }

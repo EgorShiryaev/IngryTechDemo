@@ -9,11 +9,7 @@ class ChargingPointCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: const BoxDecoration(
-        color: Color(0xFFF5F5F5),
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-      ),
+    return Card(
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: ChargingPointCardContent(model: model),
