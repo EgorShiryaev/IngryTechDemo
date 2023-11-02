@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../data/models/charging_point_status.dart';
 import '../../mock/charging_point_full_model_mock.dart';
 import '../widgets/chargin_point_page/is_favorite_button.dart';
 import '../widgets/chargin_point_page/status_chip.dart';
@@ -47,7 +46,7 @@ class ChargingPointPage extends StatelessWidget {
               children: [
                 StatusChip(status: model.status),
               ],
-            )
+            ),
           ],
         ),
       ),
