@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../core/enums/navigation_bar_icon.dart';
 import '../../themes/rounded_navigation_bar_theme_data.dart';
+import '../platform_offset.dart';
 import 'rounded_navigation_bar_item.dart';
 
 class RoundedNavigationBar extends StatelessWidget {
@@ -18,12 +19,15 @@ class RoundedNavigationBar extends StatelessWidget {
           color: theme.backgroundColor ?? Colors.transparent,
           child: SizedBox(
             height: theme.height,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                for (var i = 0; i < NavigationBarIcon.values.length; i++)
-                  RoundedNavigationBarItem(index: i),
-              ],
+            child: PlatformOffset(
+              mobilePadding: EdgeInsets.zero,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (var i = 0; i < NavigationBarIcon.values.length; i++)
+                    RoundedNavigationBarItem(index: i),
+                ],
+              ),
             ),
           ),
         ),

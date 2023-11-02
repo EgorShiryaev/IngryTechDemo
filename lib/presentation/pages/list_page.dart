@@ -17,9 +17,7 @@ class ListPage extends StatelessWidget {
           trailing: [_SearchGlassIcon()],
         ),
       ),
-      body: const PlatformOffset(
-        child: ChargingPointsList(),
-      ),
+      body: const PlatformOffset(child: ChargingPointsList()),
     );
   }
 }

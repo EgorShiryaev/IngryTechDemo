@@ -21,18 +21,23 @@ class RoundedNavigationBarItem extends ConsumerWidget {
 
     final iconTheme = theme.iconTheme?.resolve({});
     return Expanded(
-      child: InkWell(
-        onTap: () => provider.changeIndex(index),
-        child: Padding(
-          padding: const EdgeInsets.all(2),
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              borderRadius: theme.borderRadius?.copyWith(
-                bottomLeft: !icon.isFirst ? theme.borderRadius?.topLeft : null,
-                bottomRight: !icon.isLast ? theme.borderRadius?.topRight : null,
-              ),
-              color: isSelected ? theme.indicatorColor : Colors.transparent,
-            ),
+      child: Card(
+        margin: const EdgeInsets.all(2),
+        shape: RoundedRectangleBorder(
+          borderRadius: theme.borderRadius?.copyWith(
+            bottomLeft: !icon.isFirst ? theme.borderRadius?.topLeft : null,
+            bottomRight: !icon.isLast ? theme.borderRadius?.topRight : null,
+          ) as BorderRadiusGeometry,
+        ),
+        color: isSelected ? theme.indicatorColor : Colors.transparent,
+        child: InkWell(
+          hoverColor: Colors.transparent,
+          onTap: () => provider.changeIndex(index),
+          borderRadius: theme.borderRadius?.copyWith(
+            bottomLeft: !icon.isFirst ? theme.borderRadius?.topLeft : null,
+            bottomRight: !icon.isLast ? theme.borderRadius?.topRight : null,
+          ),
+          child: Ink(
             child: SvgPicture.asset(
               icon.fullPath,
               fit: BoxFit.none,
