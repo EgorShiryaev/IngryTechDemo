@@ -26,6 +26,8 @@ class AppTheme {
       appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xFFFFFFFF),
         elevation: 0,
+        foregroundColor: Color(0xFF000000),
+        centerTitle: false,
       ),
       searchBarTheme: const SearchBarThemeData(
         elevation: MaterialStatePropertyAll(0),
@@ -50,7 +52,6 @@ class AppTheme {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(15)),
         ),
-        
       ),
     );
   }
