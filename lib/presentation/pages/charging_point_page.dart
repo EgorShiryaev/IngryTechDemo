@@ -42,11 +42,7 @@ class ChargingPointPage extends StatelessWidget {
       body: PlatformOffset(
         child: ListView(
           children: [
-            Row(
-              children: [
-                StatusChip(status: model.status),
-              ],
-            ),
+            Row(children: [StatusChip(status: model.status)]),
           ],
         ),
       ),
