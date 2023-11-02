@@ -12,9 +12,12 @@ class ListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const SearchBar(
-          hintText: 'Поиск...',
-          trailing: [_SearchGlassIcon()],
+        title: const PlatformOffset(
+          mobilePadding: EdgeInsets.zero,
+          child: SearchBar(
+            hintText: 'Поиск...',
+            trailing: [_SearchGlassIcon()],
+          ),
         ),
       ),
       body: const PlatformOffset(child: ChargingPointsList()),
