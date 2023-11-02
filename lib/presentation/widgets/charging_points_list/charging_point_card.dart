@@ -10,9 +10,13 @@ class ChargingPointCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(8),
-        child: ChargingPointCardContent(model: model),
+      child: InkWell(
+        onTap: () {},
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: ChargingPointCardContent(model: model),
+        ),
       ),
     );
   }

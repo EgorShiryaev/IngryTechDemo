@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class InfoChip extends StatelessWidget {
@@ -13,7 +14,7 @@ class InfoChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
+    return Ink(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         color: backgroundColor,
