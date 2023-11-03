@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../../../../core/utils/get_icon_full_path.dart';
 import '../../../../data/models/charging_point_small_model.dart';
+import 'favorite_icon_view.dart';
 
 class ChargingPointCardInfo extends StatelessWidget {
   final ChargingPointSmallModel model;
@@ -24,12 +23,7 @@ class ChargingPointCardInfo extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: 8),
-        SvgPicture.asset(
-          getIconFullPath('filled-heart'),
-          width: 20,
-        ),
-        const SizedBox(width: 8),
+        FavoriteIconView(id: model.id),
       ],
     );
   }

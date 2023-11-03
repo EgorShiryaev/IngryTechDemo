@@ -6,16 +6,19 @@ class ErrorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const Text('Упс, что-то пошло не так'),
-        const SizedBox(height: 8),
-        FilledButton(
-          onPressed: onRetry,
-          child: const Text('Попробовать снова'),
-        ),
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Text('Упс, что-то пошло не так'),
+          const SizedBox(height: 8),
+          FilledButton(
+            onPressed: onRetry,
+            child: const Text('Попробовать снова'),
+          ),
+        ],
+      ),
     );
   }
 }

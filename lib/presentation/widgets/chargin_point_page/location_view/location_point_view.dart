@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/utils/get_icon_full_path.dart';
@@ -13,7 +14,13 @@ class LocationPointView extends StatelessWidget {
     final locationPoint = '${location.latitude} ${location.longitude}';
     return InkWell(
       onTap: () {
-        //TODO copy
+        Clipboard.setData(ClipboardData(text: locationPoint));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Скопировано'),
+            duration: Duration(milliseconds: 500),
+          ),
+        );
       },
       borderRadius: const BorderRadius.all(Radius.circular(4)),
       child: Row(

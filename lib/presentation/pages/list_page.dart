@@ -21,7 +21,9 @@ class ListPage extends StatelessWidget {
         ),
       ),
       body: const SafeArea(
-        child: PlatformOffset(child: ChargingPointsListPageBody()),
+        child: PlatformOffset(
+          child: ChargingPointsListPageBody(),
+        ),
       ),
     );
   }

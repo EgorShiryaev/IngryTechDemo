@@ -28,11 +28,11 @@ class IsFavoriteButton extends StatelessWidget {
           ),
         ],
       ),
-      child: InkWell(
-        onTap: () => onPress(!isSelected),
-        borderRadius: _borderRadius,
-        child: Padding(
-          padding: const EdgeInsets.all(4),
+      child: Padding(
+        padding: const EdgeInsets.all(4),
+        child: InkWell(
+          onTap: () => onPress(!isSelected),
+          borderRadius: _borderRadius,
           child: Ink(
             child: SvgPicture.asset(
               getIconFullPath(icon),
