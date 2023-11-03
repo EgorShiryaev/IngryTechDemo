@@ -13,6 +13,9 @@ class InfoChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final labelTextStyle = textTheme.labelSmall?.copyWith(color: labelColor);
+    
     return Ink(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -20,14 +23,7 @@ class InfoChip extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 8),
-        child: Text(
-          label,
-          style: TextStyle(
-            fontSize: 10,
-            color: labelColor,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
+        child: Text(label, style: labelTextStyle),
       ),
     );
   }

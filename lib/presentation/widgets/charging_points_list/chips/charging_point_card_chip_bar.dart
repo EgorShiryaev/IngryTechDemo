@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 import '../../../../data/models/charging_point_small_model.dart';
 import '../../../../data/models/charging_point_status.dart';
@@ -11,16 +11,13 @@ class ChargingPointCardChipBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final numberTextStyle = textTheme.labelSmall?.copyWith(
+      color: const Color(0xFF8A8E8F),
+    );
     return Row(
       children: [
-        Text(
-          '№${model.number}',
-          style: const TextStyle(
-            color: Color(0xFF8A8E8F),
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
+        Text('№${model.number}', style: numberTextStyle),
         const SizedBox(width: 8),
         MinChargingTariffChip(price: model.minChargingTariff?.price ?? 0),
         const Spacer(),

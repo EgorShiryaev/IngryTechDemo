@@ -13,6 +13,12 @@ class StatusChip extends StatelessWidget {
     final backgroundColor =
         getChargingPointStatusBackgroundColorVariant(status);
     final pointColor = getChargingPointStatusColor(status);
+
+    final textTheme = Theme.of(context).textTheme;
+    final descriptionTextStyle = textTheme.bodyLarge?.copyWith(
+      color: const Color(0xFF000000),
+    );
+
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(6)),
@@ -31,13 +37,7 @@ class StatusChip extends StatelessWidget {
               child: const SizedBox.square(dimension: 12),
             ),
             const SizedBox(width: 12),
-            Text(
-              status.description,
-              style: const TextStyle(
-                fontSize: 15,
-                color: Color(0xFF000000),
-              ),
-            ),
+            Text(status.description, style: descriptionTextStyle),
             const SizedBox(width: 8),
           ],
         ),

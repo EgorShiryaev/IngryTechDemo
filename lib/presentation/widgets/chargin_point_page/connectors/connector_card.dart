@@ -21,6 +21,17 @@ class ConnectorCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final priceText = convertPriceToText(connector.chargingTariff.price);
     final isFree = connector.chargingTariff.price == 0;
+    final parkingPriceText = isFree ? 'Бесплатно' : '$priceText₽/кВт*ч';
+
+    final textTheme = Theme.of(context).textTheme;
+    final idTextStyle =
+        textTheme.labelMedium?.copyWith(color: const Color(0xFF8A8E8F));
+    final priceTextStyle =
+        textTheme.bodySmall?.copyWith(color: const Color(0xFF000000));
+    final descriptionTextStyle = textTheme.titleSmall?.copyWith(
+      color: const Color(0xFF000000),
+      fontWeight: FontWeight.w500,
+    );
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(12)),
@@ -43,28 +54,10 @@ class ConnectorCard extends StatelessWidget {
                   const SizedBox(height: 8),
                   ConnectorImage(type: connector.type),
                   const SizedBox(height: 8),
-                  Text(
-                    'ID ${connector.number}',
-                    style: const TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF8A8E8F),
-                    ),
-                  ),
-                  Text(
-                    connector.type.description,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF000000),
-                    ),
-                  ),
+                  Text('ID ${connector.number}', style: idTextStyle),
+                  Text(connector.type.description, style: descriptionTextStyle),
                   const SizedBox(height: 8),
-                  Text(
-                    isFree ? 'Бесплатно' : '$priceText₽/кВт*ч',
-                    style:
-                        const TextStyle(fontSize: 13, color: Color(0xFF000000)),
-                  ),
+                  Text(parkingPriceText, style: priceTextStyle),
                 ],
               ),
             ),

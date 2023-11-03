@@ -12,6 +12,15 @@ class ChargingPointModelInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final stationModelTextStyle = textTheme.bodyLarge?.copyWith(
+      color: const Color(0xFF000000),
+      fontWeight: FontWeight.bold,
+    );
+    final kwhTextStyle = textTheme.bodyLarge?.copyWith(
+      color: const Color(0xFF000000),
+    );
+
     return Row(
       children: [
         if (isChargingPointFullModel(model))
@@ -19,11 +28,7 @@ class ChargingPointModelInfoView extends StatelessWidget {
             padding: const EdgeInsets.only(right: 16),
             child: Text(
               asFullModel(model).stationModel,
-              style: const TextStyle(
-                fontSize: 15,
-                color: Color(0xFF000000),
-                fontWeight: FontWeight.bold,
-              ),
+              style: stationModelTextStyle,
             ),
           ),
         ChargingPointAvatar(size: 24, type: model.type),
@@ -33,10 +38,7 @@ class ChargingPointModelInfoView extends StatelessWidget {
             child: Text(
               // ignore: lines_longer_than_80_chars
               '${convertDoubleToText(asFullModel(model).power)} кВт',
-              style: const TextStyle(
-                fontSize: 15,
-                color: Color(0xFF000000),
-              ),
+              style: kwhTextStyle,
             ),
           ),
       ],

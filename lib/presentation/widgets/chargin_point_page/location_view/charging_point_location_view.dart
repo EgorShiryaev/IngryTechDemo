@@ -12,6 +12,13 @@ class ChargingPointLocationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final parkingTextStyle =
+        textTheme.bodyLarge?.copyWith(color: const Color(0xFF000000));
+
+    final isFreeParking = location is LocationFullModel &&
+        (location as LocationFullModel).isFreeParking;
+
     return Column(
       children: [
         if (location is LocationFullModel)
@@ -29,16 +36,12 @@ class ChargingPointLocationView extends StatelessWidget {
           label: 'Адрес',
           data: LocationDataView(location: location),
         ),
-        if (location is LocationFullModel &&
-            (location as LocationFullModel).isFreeParking)
-          const Padding(
-            padding: EdgeInsets.only(top: 16),
+        if (isFreeParking)
+          Padding(
+            padding: const EdgeInsets.only(top: 16),
             child: ChargingPointInfoField(
               label: 'Парковка',
-              data: Text(
-                'Бесплатный въезд',
-                style: TextStyle(fontSize: 15, color: Color(0xFF000000)),
-              ),
+              data: Text('Бесплатный въезд', style: parkingTextStyle),
             ),
           ),
       ],

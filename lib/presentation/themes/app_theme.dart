@@ -4,6 +4,44 @@ import 'rounded_navigation_bar_theme_data.dart';
 
 class AppTheme {
   static ThemeData get light {
+    const textTheme = TextTheme(
+      headlineSmall: TextStyle(
+        fontSize: 24,
+        overflow: TextOverflow.ellipsis,
+        fontWeight: FontWeight.normal,
+        letterSpacing: 0,
+      ),
+      titleSmall: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0,
+      ),
+      bodyLarge: TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.normal,
+        letterSpacing: 0,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+        letterSpacing: 0,
+      ),
+      bodySmall: TextStyle(
+        fontSize: 13,
+        fontWeight: FontWeight.normal,
+        letterSpacing: 0,
+      ),
+      labelMedium: TextStyle(
+        fontSize: 11,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 10,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0,
+      ),
+    );
     return ThemeData(
       scaffoldBackgroundColor: const Color(0xFFFFFFFF),
       fontFamily: 'Roboto',
@@ -29,19 +67,19 @@ class AppTheme {
         foregroundColor: Color(0xFF000000),
         centerTitle: false,
       ),
-      searchBarTheme: const SearchBarThemeData(
-        elevation: MaterialStatePropertyAll(0),
-        backgroundColor: MaterialStatePropertyAll(Color(0xFFF5F5F5)),
-        constraints: BoxConstraints.expand(height: 40),
-        shape: MaterialStatePropertyAll(
+      searchBarTheme: SearchBarThemeData(
+        elevation: const MaterialStatePropertyAll(0),
+        backgroundColor: const MaterialStatePropertyAll(Color(0xFFF5F5F5)),
+        constraints: const BoxConstraints.expand(height: 40),
+        shape: const MaterialStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
         ),
         hintStyle: MaterialStatePropertyAll(
-          TextStyle(fontSize: 14, color: Color(0xFF8A8E8F)),
+          textTheme.bodyMedium?.copyWith(color: const Color(0xFF8A8E8F)),
         ),
-        padding: MaterialStatePropertyAll(
+        padding: const MaterialStatePropertyAll(
           EdgeInsets.symmetric(horizontal: 12),
         ),
       ),
@@ -53,6 +91,7 @@ class AppTheme {
           borderRadius: BorderRadius.all(Radius.circular(15)),
         ),
       ),
+      textTheme: textTheme,
     );
   }
 }

@@ -10,23 +10,18 @@ class LocationDataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final addressTextStyle =
+        textTheme.bodyLarge?.copyWith(color: const Color(0xFF000000));
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          location.address,
-          maxLines: 3,
-          style: const TextStyle(
-            fontSize: 15,
-            color: Color(0xFF000000),
-          ),
-        ),
+        Text(location.address, maxLines: 3, style: addressTextStyle),
         if (location is LocationFullModel)
           Padding(
             padding: const EdgeInsets.only(top: 4),
-            child: LocationPointView(
-              location: location as LocationFullModel,
-            ),
+            child: LocationPointView(location: location as LocationFullModel),
           ),
       ],
     );

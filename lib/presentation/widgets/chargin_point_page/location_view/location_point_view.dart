@@ -11,10 +11,14 @@ class LocationPointView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final locationPoint = '${location.latitude} ${location.longitude}';
+    final textTheme = Theme.of(context).textTheme;
+
+    final locationCoordsTextStyle =
+        textTheme.bodySmall?.copyWith(color: const Color(0xFF8A8E8F));
+    final locationCoords = '${location.latitude} ${location.longitude}';
     return InkWell(
       onTap: () {
-        Clipboard.setData(ClipboardData(text: locationPoint));
+        Clipboard.setData(ClipboardData(text: locationCoords));
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Скопировано'),
@@ -26,13 +30,7 @@ class LocationPointView extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            locationPoint,
-            style: const TextStyle(
-              fontSize: 13,
-              color: Color(0xFF8A8E8F),
-            ),
-          ),
+          Text(locationCoords, style: locationCoordsTextStyle),
           const SizedBox(width: 4),
           SvgPicture.asset(getIconFullPath('copy')),
         ],

@@ -16,19 +16,16 @@ class ChargingPointAppBarContent extends ConsumerWidget {
     final favoritePoints = ref.watch(favoriteChargingPointsNotifier);
     final provider = ref.read(favoriteChargingPointsNotifier.notifier);
 
+    final textTheme = Theme.of(context).textTheme;
+    final titleTextStyle = textTheme.headlineSmall;
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const GoBackButton(),
         const SizedBox(width: 12),
         Expanded(
-          child: Text(
-            model!.location.title,
-            style: const TextStyle(
-              fontSize: 24,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
+          child: Text(model!.location.title, style: titleTextStyle),
         ),
         IsFavoriteButton(
           isSelected: isFavorite(favoritePoints, model.id),
