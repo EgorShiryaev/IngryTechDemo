@@ -21,14 +21,7 @@ class ChargingPointPageBody extends ConsumerWidget {
     return Stack(
       children: [
         if (state is ChargingPointError)
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 50),
-              child: ErrorView(
-                onRetry: () => provider.load(model.id),
-              ),
-            ),
-          )
+          ErrorView(onRetry: () => provider.load(model.id))
         else
           const ChargingPointPageContent(),
         if (!isChargingPointFullModel(model)) const LoadingMask(),

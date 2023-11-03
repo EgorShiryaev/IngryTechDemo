@@ -21,14 +21,7 @@ class ChargingPointsListPageBody extends ConsumerWidget {
     } else if (state is ChargingPointsListSuccess) {
       return const ChargingPointsList();
     } else if (state is ChargingPointsListError) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 50),
-          child: ErrorView(
-            onRetry: provider.refresh,
-          ),
-        ),
-      );
+      return ErrorView(onRetry: provider.refresh);
     }
     return const Text('Unknowed state of ChargingPointsListState');
   }
