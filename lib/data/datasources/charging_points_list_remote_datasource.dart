@@ -7,13 +7,13 @@ class ChargingPointsListRemoteDatasource {
 
   ChargingPointsListRemoteDatasource({required this.client});
 
-  Future<List<ChargingPointSmallModel>> loadList(
+  Future<List<ChargingPointSmallModel>> loadPoints(
     int offset, [
     int limit = 10,
   ]) async {
-    const query = '''
-      query ChargingPoints {
-        chargingPoints(offset: 0, limit: 10) {
+    const query = r'''
+      query ChargingPoints($offset: Int!, $limit: Int!) {
+        chargingPoints(offset: $offset, limit: $limit) {
             data {
                 id
                 cpNumber

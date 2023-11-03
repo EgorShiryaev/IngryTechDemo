@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../core/utils/get_icon_full_path.dart';
-import '../widgets/charging_points_list/charging_points_list.dart';
+import '../widgets/charging_points_list/charging_points_list_page_body.dart';
 import '../widgets/platform_offset.dart';
 
 class ListPage extends StatelessWidget {
@@ -21,7 +21,7 @@ class ListPage extends StatelessWidget {
         ),
       ),
       body: const SafeArea(
-        child: PlatformOffset(child: ChargingPointsList()),
+        child: PlatformOffset(child: ChargingPointsListPageBody()),
       ),
     );
   }

@@ -5,7 +5,7 @@ import '../../../core/utils/as_full_model.dart';
 import '../../../core/utils/is_charging_station_full_model.dart';
 import '../../controllers/charging_point_notifier.dart';
 import 'connectors/connectors_list_view.dart';
-import 'loading_maks.dart';
+import 'loading_mask.dart';
 import 'location_view/charging_point_location_view.dart';
 import 'model_and_id/charging_point_info.dart';
 import 'status_chip.dart';
@@ -44,7 +44,7 @@ class ChargingPointPageBody extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 50),
                 child: SizedBox(
-                  height: 212,
+                  height: 210,
                   child: ConnectorsListView(
                     connectors: asFullModel(model).connectors,
                   ),

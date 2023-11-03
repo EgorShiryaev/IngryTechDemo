@@ -20,15 +20,31 @@ class ChargingPointsListStateNotifier
   ChargingPointsListStateNotifier({required this.datasource})
       : super(ChargingPointsListInitial());
 
-  Future<void> _getPoints(int offset) async {
+  Future<void> refresh() async {
     state = ChargingPointsListLoading();
+    return loadNextRecords();
+  }
+
+  Future<void> loadNextRecords() async {
     try {
-      final result = await datasource.loadList(0);
-      state = ChargingPointsListSuccess(points: result);
+      final result = await datasource.loadPoints(offset);
+      if (state is ChargingPointsListSuccess) {
+        state = ChargingPointsListSuccess.copyWith(
+          state as ChargingPointsListSuccess,
+          result,
+        );
+      } else {
+        state = ChargingPointsListSuccess(points: result);
+      }
     } catch (e) {
       state = ChargingPointsListError(error: e.toString());
     }
   }
 
-  Future<void> refresh() => _getPoints(0);
+  int get offset {
+    if (state is ChargingPointsListSuccess) {
+      return (state as ChargingPointsListSuccess).points.length;
+    }
+    return 0;
+  }
 }

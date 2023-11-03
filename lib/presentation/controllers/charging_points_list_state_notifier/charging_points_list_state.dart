@@ -7,9 +7,18 @@ class ChargingPointsListInitial extends ChargingPointsListState {}
 class ChargingPointsListLoading extends ChargingPointsListState {}
 
 class ChargingPointsListSuccess extends ChargingPointsListState {
-  final List<ChargingPointSmallModel> points;
+  List<ChargingPointSmallModel> points;
 
   ChargingPointsListSuccess({required this.points});
+
+  factory ChargingPointsListSuccess.copyWith(
+    ChargingPointsListSuccess state,
+    List<ChargingPointSmallModel> points,
+  ) {
+    return ChargingPointsListSuccess(
+      points: [...state.points, ...points],
+    );
+  }
 }
 
 class ChargingPointsListError extends ChargingPointsListState {
