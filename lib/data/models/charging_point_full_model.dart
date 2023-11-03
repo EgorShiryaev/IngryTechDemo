@@ -1,8 +1,10 @@
+// ignore_for_file: overridden_fields
+
 import 'package:json_annotation/json_annotation.dart';
 
 import 'charging_point_small_model.dart';
 import 'charging_point_status.dart';
-import 'connector_small_model.dart';
+import 'connector_full_model.dart';
 import 'location_full_model.dart';
 
 part 'charging_point_full_model.g.dart';
@@ -18,8 +20,10 @@ class ChargingPointFullModel extends ChargingPointSmallModel {
   final String stationModel;
   // Локация
   @override
-  // ignore: overridden_fields
   final LocationFullModel location;
+
+  @override
+  final List<ConnectorFullModel> connectors;
 
   ChargingPointFullModel({
     required this.power,
@@ -30,8 +34,8 @@ class ChargingPointFullModel extends ChargingPointSmallModel {
     required super.type,
     required super.status,
     required this.location,
-    required super.connectors,
-  }) : super(location: location);
+    required this.connectors,
+  }) : super(location: location, connectors: connectors);
 
   factory ChargingPointFullModel.fromJson(Map<String, dynamic> json) =>
       _$ChargingPointFullModelFromJson(json);

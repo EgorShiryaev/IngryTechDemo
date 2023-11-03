@@ -16,7 +16,7 @@ class ConnectorFullModel extends ConnectorSmallModel {
   @JsonKey(name: 'statusId')
   final ConnectorStatus status;
   // Id для станции зарядки
-  final int number;
+  final String number;
 
   ConnectorFullModel({
     required this.type,

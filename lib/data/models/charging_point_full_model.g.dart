@@ -18,8 +18,8 @@ ChargingPointFullModel _$ChargingPointFullModelFromJson(
       status: $enumDecode(_$ChargingPointStatusEnumMap, json['statusId']),
       location:
           LocationFullModel.fromJson(json['location'] as Map<String, dynamic>),
-     connectors: (json['connectors']['data'] as List<dynamic>)
-          .map((e) => ConnectorSmallModel.fromJson(e as Map<String, dynamic>))
+      connectors: (json['connectors']['data'] as List<dynamic>)
+          .map((e) => ConnectorFullModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

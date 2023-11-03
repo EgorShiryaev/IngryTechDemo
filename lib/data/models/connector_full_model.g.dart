@@ -8,16 +8,16 @@ part of 'connector_full_model.dart';
 
 ConnectorFullModel _$ConnectorFullModelFromJson(Map<String, dynamic> json) =>
     ConnectorFullModel(
-      type: $enumDecode(
-          _$ConnectorTypeEnumMap, json['typeId'], ConnectorType.other),
+      type: $enumDecode(_$ConnectorTypeEnumMap, json['typeId'],
+          unknownValue: ConnectorType.other),
       status: $enumDecode(_$ConnectorStatusEnumMap, json['statusId']),
-      number: json['number'] as int,
+      number: json['number'] as String,
       id: json['id'] as String,
       tariffs: (json['tariffs'] as List<dynamic>)
           .map((e) => TariffSmallModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
-    
+
 Map<String, dynamic> _$ConnectorFullModelToJson(ConnectorFullModel instance) =>
     <String, dynamic>{
       'id': instance.id,
