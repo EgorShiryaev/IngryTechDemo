@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../mock/charging_point_small_models_mock.dart';
-import 'charging_point_card.dart';
+import 'card/charging_point_card.dart';
 
 class ChargingPointsList extends StatelessWidget {
   const ChargingPointsList({super.key});

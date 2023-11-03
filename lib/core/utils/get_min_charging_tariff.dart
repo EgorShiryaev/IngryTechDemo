@@ -9,7 +9,7 @@ TariffSmallModel? getMinChargingTariff(
   for (final con in connectors) {
     tariff ??= con.chargingTariff;
 
-    if (tariff.price < con.chargingTariff.price) {
+    if (tariff.price > con.chargingTariff.price) {
       tariff = con.chargingTariff;
     }
   }

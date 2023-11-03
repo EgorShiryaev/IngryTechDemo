@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../core/utils/get_icon_full_path.dart';
+import '../../../../core/utils/get_icon_full_path.dart';
 
 class IsFavoriteButton extends StatelessWidget {
   final bool isSelected;

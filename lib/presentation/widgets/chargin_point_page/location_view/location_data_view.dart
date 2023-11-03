@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/models/location_full_model.dart';
-import '../../../data/models/location_small_model.dart';
+import '../../../../data/models/location_full_model.dart';
+import '../../../../data/models/location_small_model.dart';
 import 'location_point_view.dart';
 
 class LocationDataView extends StatelessWidget {

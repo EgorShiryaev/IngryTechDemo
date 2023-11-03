@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/chargin_point_page/charging_point_app_bar_content.dart';
+import '../widgets/chargin_point_page/header/charging_point_app_bar_content.dart';
 import '../widgets/chargin_point_page/charging_point_page_body.dart';
 
 class ChargingPointPage extends StatelessWidget {

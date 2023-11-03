@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../data/models/charging_point_small_model.dart';
-import '../../../mock/charging_point_full_model_mock.dart';
-import '../../controllers/charging_point_notifier.dart';
-import '../../pages/charging_point_page.dart';
+import '../../../../data/models/charging_point_small_model.dart';
+import '../../../../mock/charging_point_full_model_mock.dart';
+import '../../../controllers/charging_point_notifier.dart';
+import '../../../pages/charging_point_page.dart';
 import 'charging_point_card_content.dart';
 
 class ChargingPointCard extends ConsumerWidget {

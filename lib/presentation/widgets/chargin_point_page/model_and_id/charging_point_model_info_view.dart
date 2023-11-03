@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/as_full_model.dart';
-import '../../../core/utils/convert_double_to_text.dart';
-import '../../../core/utils/is_charging_station_full_model.dart';
-import '../../../data/models/charging_point_small_model.dart';
-import '../charging_points_list/charging_point_avatar.dart';
+import '../../../../core/utils/as_full_model.dart';
+import '../../../../core/utils/convert_double_to_text.dart';
+import '../../../../core/utils/is_charging_station_full_model.dart';
+import '../../../../data/models/charging_point_small_model.dart';
+import '../../charging_points_list/charging_point_avatar.dart';
 
 class ChargingPointModelInfoView extends StatelessWidget {
   final ChargingPointSmallModel model;

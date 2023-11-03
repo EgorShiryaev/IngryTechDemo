@@ -13,7 +13,7 @@ class StatusChip extends StatelessWidget {
     final backgroundColor =
         getChargingPointStatusBackgroundColorVariant(status);
     final pointColor = getChargingPointStatusColor(status);
-    return Ink(
+    return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(6)),
         color: backgroundColor,

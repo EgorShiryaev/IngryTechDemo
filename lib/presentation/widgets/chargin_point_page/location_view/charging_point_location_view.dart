@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/models/location_full_model.dart';
-import '../../../data/models/location_small_model.dart';
+import '../../../../data/models/location_full_model.dart';
+import '../../../../data/models/location_small_model.dart';
 import 'charging_point_info_field.dart';
 import 'location_data_view.dart';
 import 'working_hours_data_view.dart';

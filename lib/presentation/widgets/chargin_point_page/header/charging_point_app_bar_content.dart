@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../controllers/charging_point_notifier.dart';
-import '../go_back_button.dart';
+import '../../../controllers/charging_point_notifier.dart';
+import '../../go_back_button.dart';
 import 'is_favorite_button.dart';
 
 class ChargingPointAppBarContent extends ConsumerWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/models/working_hours_model.dart';
+import '../../../../data/models/working_hours_model.dart';
 
 class WorkingHoursDataView extends StatelessWidget {
   final WorkingHoursModel workingHours;

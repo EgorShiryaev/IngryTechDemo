@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/as_full_model.dart';
 import '../../../core/utils/is_charging_station_full_model.dart';
 import '../../controllers/charging_point_notifier.dart';
-import '../platform_offset.dart';
-import 'charging_point_info.dart';
-import 'charging_point_location_view.dart';
+import 'model_and_id/charging_point_info.dart';
+import 'location_view/charging_point_location_view.dart';
+import 'connectors/connectors_list_view.dart';
 import 'loading_maks.dart';
 import 'status_chip.dart';
 
@@ -18,26 +19,39 @@ class ChargingPointPageBody extends ConsumerWidget {
 
     return Stack(
       children: [
-        PlatformOffset(
-          child: ListView(
-            children: [
-              Row(children: [StatusChip(status: model.status)]),
-              const SizedBox(height: 16),
+        ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  Row(children: [StatusChip(status: model.status)]),
+                  const SizedBox(height: 16),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Column(
+                      children: [
+                        ChargingPointInfo(model: model),
+                        ChargingPointLocationView(location: model.location),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (isChargingPointFullModel(model))
               Padding(
-                padding: const EdgeInsets.only(left: 8),
-                child: Column(
-                  children: [
-                    ChargingPointInfo(model: model),
-                    ChargingPointLocationView(location: model.location),
-                    const SizedBox(height: 50),
-                  ],
+                padding: const EdgeInsets.only(top: 50),
+                child: SizedBox(
+                  height: 212,
+                  child: ConnectorsListView(
+                    connectors: asFullModel(model).connectors,
+                  ),
                 ),
               ),
-            ],
-          ),
+          ],
         ),
-        if (!isChargingPointFullModel(model))
-          const LoadingMask(),
+        if (!isChargingPointFullModel(model)) const LoadingMask(),
       ],
     );
   }

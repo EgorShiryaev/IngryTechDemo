@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-import '../../../data/models/charging_point_small_model.dart';
-import '../../../data/models/charging_point_status.dart';
+import '../../../../data/models/charging_point_small_model.dart';
+import '../../../../data/models/charging_point_status.dart';
 import 'min_charging_tariff_chip.dart';
 import 'status_chip.dart';
 

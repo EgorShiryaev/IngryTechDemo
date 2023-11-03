@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../core/utils/get_icon_full_path.dart';
-import '../../../data/models/location_full_model.dart';
+import '../../../../core/utils/get_icon_full_path.dart';
+import '../../../../data/models/location_full_model.dart';
 
 class LocationPointView extends StatelessWidget {
   final LocationFullModel location;
