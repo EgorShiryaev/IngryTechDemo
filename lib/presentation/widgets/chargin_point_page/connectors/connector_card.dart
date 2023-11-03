@@ -65,6 +65,6 @@ class ConnectorCard extends StatelessWidget {
               ),
             );
           },
-        ));
+        ),);
   }
 }
