@@ -9,27 +9,33 @@ class WorkingHoursDataView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(workingHours.start),
-            Text(workingHours.end),
-          ],
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 200),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(workingHours.start),
+              Text(workingHours.end),
+            ],
+          ),
         ),
         const SizedBox(height: 4),
-        const ColoredBox(
-          color: Color(0x204B4B4B),
-          child: SizedBox(
-            height: 2,
-            child: Align(
-              alignment: Alignment(0.6, 0),
-              child: ColoredBox(
-                color: Color(0xFF00AB55),
-                child: SizedBox(
-                  height: 2,
-                  width: 100,
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 200),
+          child: const ColoredBox(
+            color: Color(0x204B4B4B),
+            child: SizedBox(
+              height: 2,
+              child: Align(
+                alignment: Alignment(0.6, 0),
+                child: ColoredBox(
+                  color: Color(0xFF00AB55),
+                  child: SizedBox(
+                    height: 2,
+                    width: 100,
+                  ),
                 ),
               ),
             ),
