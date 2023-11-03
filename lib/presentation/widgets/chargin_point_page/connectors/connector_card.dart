@@ -21,10 +21,21 @@ class ConnectorCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final priceText = convertPriceToText(connector.chargingTariff.price);
     final isFree = connector.chargingTariff.price == 0;
+    final parkingPriceText = isFree ? 'Бесплатно' : '$priceText₽/кВт*ч';
+    final theme = Theme.of(context);
+
+    final idTextStyle =
+        theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.outline);
+    final priceTextStyle = theme.textTheme.bodySmall
+        ?.copyWith(color: theme.colorScheme.onBackground);
+    final descriptionTextStyle = theme.textTheme.titleSmall?.copyWith(
+      color: theme.colorScheme.onBackground,
+      fontWeight: FontWeight.w500,
+    );
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(12)),
-        border: Border.all(color: const Color(0xFFDEDEDE)),
+        border: Border.all(color: theme.colorScheme.outlineVariant),
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -43,28 +54,10 @@ class ConnectorCard extends StatelessWidget {
                   const SizedBox(height: 8),
                   ConnectorImage(type: connector.type),
                   const SizedBox(height: 8),
-                  Text(
-                    'ID ${connector.number}',
-                    style: const TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF8A8E8F),
-                    ),
-                  ),
-                  Text(
-                    connector.type.description,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF000000),
-                    ),
-                  ),
+                  Text('ID ${connector.number}', style: idTextStyle),
+                  Text(connector.type.description, style: descriptionTextStyle),
                   const SizedBox(height: 8),
-                  Text(
-                    isFree ? 'Бесплатно' : '$priceText₽/кВт*ч',
-                    style:
-                        const TextStyle(fontSize: 13, color: Color(0xFF000000)),
-                  ),
+                  Text(parkingPriceText, style: priceTextStyle),
                 ],
               ),
             ),

@@ -17,15 +17,13 @@ class IsFavoriteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final icon = isSelected ? 'filled-heart' : 'heart';
+    final colorScheme = Theme.of(context).colorScheme;
     return DecoratedBox(
-      decoration: const BoxDecoration(
-        color: Color(0xFFFFFFFF),
+      decoration: BoxDecoration(
+        color: colorScheme.surface,
         borderRadius: _borderRadius,
         boxShadow: [
-          BoxShadow(
-            blurRadius: 40,
-            color: Color.fromARGB(20, 0, 0, 0),
-          ),
+          BoxShadow(blurRadius: 40, color: colorScheme.shadow),
         ],
       ),
       child: Padding(

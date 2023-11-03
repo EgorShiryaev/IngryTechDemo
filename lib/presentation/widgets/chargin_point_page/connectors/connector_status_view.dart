@@ -12,6 +12,9 @@ class ConnectorStatusView extends StatelessWidget {
   Widget build(BuildContext context) {
     final foregroundColor = getConnectorStatusForegroundColor(status);
     final backgroundColor = getConnectorStatusBackgroundColor(status);
+    final theme = Theme.of(context);
+    final descriptionTextStyle =
+        theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.outline);
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(6)),
@@ -21,11 +24,7 @@ class ConnectorStatusView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
         child: Text(
           status.description,
-          style: TextStyle(
-            fontSize: 11,
-            fontWeight: FontWeight.w500,
-            color: foregroundColor,
-          ),
+          style: descriptionTextStyle?.copyWith(color: foregroundColor),
         ),
       ),
     );

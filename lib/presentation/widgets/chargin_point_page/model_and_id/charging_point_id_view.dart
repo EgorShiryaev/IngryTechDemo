@@ -6,20 +6,17 @@ class ChargingPointIdView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final labelTextStyle =
+        theme.textTheme.bodyLarge?.copyWith(color: theme.colorScheme.outline);
+    final idTextStyle = theme.textTheme.bodyLarge
+        ?.copyWith(color: theme.colorScheme.onBackground);
+
     return Row(
       children: [
-        const Text(
-          'ID ЭЗС',
-          style: TextStyle(fontSize: 15, color: Color(0xFF8A8E8F)),
-        ),
+        Text('ID ЭЗС', style: labelTextStyle),
         const SizedBox(width: 4),
-        Text(
-          id,
-          style: const TextStyle(
-            fontSize: 15,
-            color: Color(0xFF000000),
-          ),
-        ),
+        Text(id, style: idTextStyle),
       ],
     );
   }

@@ -9,6 +9,12 @@ class ChargingPointCardInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final titleTextStyle = theme.textTheme.bodyLarge?.copyWith(
+      color: theme.colorScheme.onSurface,
+      fontWeight: FontWeight.w500,
+    );
+
     return Row(
       children: [
         Expanded(
@@ -16,11 +22,7 @@ class ChargingPointCardInfo extends StatelessWidget {
             model.location.title,
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
-            style: const TextStyle(
-              color: Color(0xFF000000),
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-            ),
+            style: titleTextStyle,
           ),
         ),
         FavoriteIconView(id: model.id),

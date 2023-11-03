@@ -15,6 +15,11 @@ class ChargingPointCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final addressTextStyle = theme.textTheme.labelSmall?.copyWith(
+      color: theme.colorScheme.onSurface,
+    );
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -26,11 +31,14 @@ class ChargingPointCardContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ChargingPointCardChipBar(model: model),
+              const SizedBox(height: 2),
               ChargingPointCardInfo(model: model),
+              const SizedBox(height: 2),
               Text(
                 addressWithOutPostCode,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
+                style: addressTextStyle,
               ),
             ],
           ),
