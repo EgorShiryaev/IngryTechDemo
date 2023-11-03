@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/utils/is_favorite.dart';
 import '../../../controllers/charging_point_notifier.dart';
+import '../../../controllers/favorite_charging_points_notifier.dart';
 import '../../go_back_button.dart';
 import 'is_favorite_button.dart';
 
@@ -11,6 +13,9 @@ class ChargingPointAppBarContent extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(chargingPointNotifierProvider);
+    final favoritePoints = ref.watch(favoriteChargingPointsNotifier);
+    final provider = ref.read(favoriteChargingPointsNotifier.notifier);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -26,9 +31,13 @@ class ChargingPointAppBarContent extends ConsumerWidget {
           ),
         ),
         IsFavoriteButton(
-          isSelected: false,
-          onPress: (value) {
-            //TODO select
+          isSelected: isFavorite(favoritePoints, model.id),
+          onPress: (newValue) {
+            if (newValue) {
+              provider.makeFavorite(model.id);
+            } else {
+              provider.makeUnfavorite(model.id);
+            }
           },
         ),
       ],
