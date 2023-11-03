@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/models/charging_point_full_model.dart';
+import '../../../core/utils/is_charging_station_full_model.dart';
 import '../../../data/models/charging_point_small_model.dart';
 import '../../controllers/platform_info.dart';
 import 'charging_point_id_view.dart';
@@ -12,7 +12,7 @@ class ChargingPointInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (PlatformInfo.of(context).isMobile && model is ChargingPointFullModel) {
+    if (PlatformInfo.of(context).isMobile && isChargingPointFullModel(model)) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
