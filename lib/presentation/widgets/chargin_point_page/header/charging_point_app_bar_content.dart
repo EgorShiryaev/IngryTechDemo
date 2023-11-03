@@ -16,11 +16,15 @@ class ChargingPointAppBarContent extends ConsumerWidget {
       children: [
         const GoBackButton(),
         const SizedBox(width: 12),
-        Text(
-          model!.location.title,
-          style: const TextStyle(fontSize: 24),
+        Expanded(
+          child: Text(
+            model!.location.title,
+            style: const TextStyle(
+              fontSize: 24,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
         ),
-        const Spacer(),
         IsFavoriteButton(
           isSelected: false,
           onPress: (value) {
