@@ -13,6 +13,7 @@ dependencies:
   flutter_svg: ^2.0.8
   riverpod: ^2.4.5
   json_annotation: ^4.8.1
+  graphql_flutter: ^5.1.2
 
 dev_dependencies:
   flutter_test:
