@@ -3,8 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../controllers/charging_points_list_state_notifier/charging_points_list_state.dart';
 import '../../controllers/charging_points_list_state_notifier/charging_points_list_state_notifier.dart';
-import '../chargin_point_page/loading_maks.dart';
 import 'card/charging_point_card.dart';
+
+bool hasMore = true;
+int previousPointsLength = 0;
 
 class ChargingPointsList extends ConsumerWidget {
   const ChargingPointsList({super.key});
@@ -13,27 +15,36 @@ class ChargingPointsList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(chargingPointsListStateNotifier);
     final provider = ref.read(chargingPointsListStateNotifier.notifier);
-    if (state is ChargingPointsListInitial ||
-        state is ChargingPointsListLoading) {
-      return const LoadingMask();
-    } else if (state is ChargingPointsListSuccess) {
-      final points = state.points;
-      return RefreshIndicator.adaptive(
-        onRefresh: provider.refresh,
-        child: ListView.separated(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          itemBuilder: (context, index) {
-            final model = points[index];
-            return ChargingPointCard(model: model);
-          },
-          separatorBuilder: (context, index) => const SizedBox(height: 16),
-          itemCount: points.length,
-        ),
-      );
-    } else if (state is ChargingPointsListError) {
-      // TODO make error widget
-      return Text(state.error);
-    }
-    return const Text('Unknowed state of ChargingPointsListState');
+    final points = (state as ChargingPointsListSuccess).points;
+    hasMore = previousPointsLength != points.length;
+    return RefreshIndicator.adaptive(
+      onRefresh: () {
+        previousPointsLength = 0;
+        return provider.refresh();
+      },
+      child: ListView.separated(
+        itemCount: points.length + 1,
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        separatorBuilder: (context, index) => const SizedBox(height: 16),
+        itemBuilder: (context, index) {
+          if (index == points.length && hasMore) {
+            provider.loadNextRecords();
+            previousPointsLength = points.length;
+            return const Padding(
+              padding: EdgeInsets.all(8),
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: Color(0xFFE1E000),
+                ),
+              ),
+            );
+          } else if (index == points.length) {
+            return const SizedBox();
+          }
+          final model = points[index];
+          return ChargingPointCard(model: model);
+        },
+      ),
+    );
   }
 }
