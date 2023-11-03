@@ -1,11 +1,9 @@
-import 'package:graphql_flutter/graphql_flutter.dart';
 
 import '../models/charging_point_small_model.dart';
+import 'base_graphql_datasource.dart';
 
-class ChargingPointsListRemoteDatasource {
-  final GraphQLClient client;
-
-  ChargingPointsListRemoteDatasource({required this.client});
+class ChargingPointsListRemoteDatasource extends BaseGrapgQlDatasource {
+  ChargingPointsListRemoteDatasource({required super.client});
 
   Future<List<ChargingPointSmallModel>> loadPoints(
     int offset, [
@@ -37,31 +35,15 @@ class ChargingPointsListRemoteDatasource {
                 }
             }
         }
-    }
-  ''';
+      }
+    ''';
     final vars = {'limit': limit, 'offset': offset};
-    final options = QueryOptions(document: gql(query), variables: vars);
-    final result = await client.query(options);
 
-    final exception = result.exception;
-    if (exception != null) {
-      throw exception;
-    }
+    final result = await request('chargingPoints', query, vars);
+    final List data = result['data'];
 
-    final chargingPointsJson = result.data?['chargingPoints'];
-
-    if (chargingPointsJson == null) {
-      return [];
-    }
-
-    // ignore: avoid_dynamic_calls
-    final List list = chargingPointsJson!['data'];
-
-    return list
-        .map(
-          (json) =>
-              ChargingPointSmallModel.fromJson(json as Map<String, dynamic>),
-        )
-        .toList();
+    return data.map((json) {
+      return ChargingPointSmallModel.fromJson(json as Map<String, dynamic>);
+    }).toList();
   }
 }

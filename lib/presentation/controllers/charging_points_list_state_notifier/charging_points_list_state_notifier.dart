@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/datasources/charging_points_list_remote_datasource.dart';
-import '../charging_points_list_remote_datasource_provider.dart';
+import '../datasources/charging_points_list_remote_datasource_provider.dart';
 import 'charging_points_list_state.dart';
 
 final chargingPointsListStateNotifier = StateNotifierProvider<

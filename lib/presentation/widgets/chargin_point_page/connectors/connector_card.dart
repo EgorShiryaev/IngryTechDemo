@@ -20,51 +20,57 @@ class ConnectorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final priceText = convertPriceToText(connector.chargingTariff.price);
+    final isFree = connector.chargingTariff.price == 0;
     return DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
-          border: Border.all(color: const Color(0xFFDEDEDE)),
-        ),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return ConstrainedBox(
-              constraints: BoxConstraints(
-                minWidth: _minWidth >= width ? _minWidth : width,
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        border: Border.all(color: const Color(0xFFDEDEDE)),
+      ),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: _minWidth >= width ? _minWidth : width,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 16,
+                horizontal: 8,
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 16,
-                  horizontal: 8,
-                ),
-                child: Column(
-                  children: [
-                    ConnectorStatusView(status: connector.status),
-                    const SizedBox(height: 8),
-                    ConnectorImage(type: connector.type),
-                    const SizedBox(height: 8),
-                    Text(
-                      'ID ${connector.number}',
-                      style: const TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFF8A8E8F),
-                      ),
+              child: Column(
+                children: [
+                  ConnectorStatusView(status: connector.status),
+                  const SizedBox(height: 8),
+                  ConnectorImage(type: connector.type),
+                  const SizedBox(height: 8),
+                  Text(
+                    'ID ${connector.number}',
+                    style: const TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF8A8E8F),
                     ),
-                    Text(
-                      connector.type.description,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFF000000),
-                      ),
+                  ),
+                  Text(
+                    connector.type.description,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF000000),
                     ),
-                    const SizedBox(height: 8),
-                    Text('$priceText₽/кВт*ч'),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    isFree ? 'Бесплатно' : '$priceText₽/кВт*ч',
+                    style:
+                        const TextStyle(fontSize: 13, color: Color(0xFF000000)),
+                  ),
+                ],
               ),
-            );
-          },
-        ),);
+            ),
+          );
+        },
+      ),
+    );
   }
 }
