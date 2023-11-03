@@ -9,7 +9,7 @@ class ChargingPointsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: const EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.symmetric(vertical: 16),
       itemBuilder: (context, index) {
         final model = chargingPointSmallModelsMock[index];
         return ChargingPointCard(model: model);

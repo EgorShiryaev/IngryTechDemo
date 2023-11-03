@@ -20,6 +20,7 @@ class ChargingPointPageBody extends ConsumerWidget {
     return Stack(
       children: [
         ListView(
+          padding: const EdgeInsets.only(top: 16, bottom: 24),
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),

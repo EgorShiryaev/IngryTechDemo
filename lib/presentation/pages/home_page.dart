@@ -13,7 +13,10 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return const Scaffold(
       body: NavigationStack(),
-      bottomNavigationBar: RoundedNavigationBar(),
+      bottomNavigationBar: SafeArea(
+        bottom: false,
+        child: RoundedNavigationBar(),
+      ),
     );
   }
 }

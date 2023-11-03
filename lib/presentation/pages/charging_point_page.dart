@@ -15,7 +15,10 @@ class ChargingPointPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: const ChargingPointAppBarContent(),
       ),
-      body: const ChargingPointPageBody(),
+      body: const SafeArea(
+        bottom: false,
+        child: ChargingPointPageBody(),
+      ),
     );
   }
 }
