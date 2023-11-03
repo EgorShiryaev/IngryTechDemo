@@ -11,9 +11,9 @@ class ChargingPointCardChipBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final numberTextStyle = textTheme.labelSmall?.copyWith(
-      color: const Color(0xFF8A8E8F),
+    final theme = Theme.of(context);
+    final numberTextStyle = theme.textTheme.labelSmall?.copyWith(
+      color: theme.colorScheme.outline,
     );
     return Row(
       children: [

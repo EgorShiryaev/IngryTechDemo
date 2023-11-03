@@ -12,13 +12,13 @@ class ChargingPointModelInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final stationModelTextStyle = textTheme.bodyLarge?.copyWith(
-      color: const Color(0xFF000000),
+    final theme = Theme.of(context);
+    final stationModelTextStyle = theme.textTheme.bodyLarge?.copyWith(
+      color: theme.colorScheme.onBackground,
       fontWeight: FontWeight.bold,
     );
-    final kwhTextStyle = textTheme.bodyLarge?.copyWith(
-      color: const Color(0xFF000000),
+    final kwhTextStyle = theme.textTheme.bodyLarge?.copyWith(
+      color: theme.colorScheme.onBackground,
     );
 
     return Row(

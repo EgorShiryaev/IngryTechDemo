@@ -8,6 +8,7 @@ class WorkingHoursDataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -24,9 +25,9 @@ class WorkingHoursDataView extends StatelessWidget {
         const SizedBox(height: 4),
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 200),
-          child: const ColoredBox(
-            color: Color(0x204B4B4B),
-            child: SizedBox(
+          child: ColoredBox(
+            color: colorScheme.outlineVariant,
+            child: const SizedBox(
               height: 2,
               child: Align(
                 alignment: Alignment(0.6, 0),

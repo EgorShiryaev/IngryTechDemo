@@ -9,9 +9,9 @@ class ChargingPointCardInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final titleTextStyle = textTheme.bodyLarge?.copyWith(
-      color: const Color(0xFF000000),
+    final theme = Theme.of(context);
+    final titleTextStyle = theme.textTheme.bodyLarge?.copyWith(
+      color: theme.colorScheme.onSurface,
       fontWeight: FontWeight.w500,
     );
 

@@ -33,9 +33,7 @@ class ChargingPointsList extends ConsumerWidget {
             return const Padding(
               padding: EdgeInsets.all(8),
               child: Center(
-                child: CircularProgressIndicator(
-                  color: Color(0xFFE1E000),
-                ),
+                child: CircularProgressIndicator(),
               ),
             );
           } else if (index == points.length) {

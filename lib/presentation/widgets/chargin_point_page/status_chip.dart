@@ -13,10 +13,9 @@ class StatusChip extends StatelessWidget {
     final backgroundColor =
         getChargingPointStatusBackgroundColorVariant(status);
     final pointColor = getChargingPointStatusColor(status);
-
-    final textTheme = Theme.of(context).textTheme;
-    final descriptionTextStyle = textTheme.bodyLarge?.copyWith(
-      color: const Color(0xFF000000),
+    final theme = Theme.of(context);
+    final descriptionTextStyle = theme.textTheme.bodyLarge?.copyWith(
+      color: theme.colorScheme.onSurface,
     );
 
     return DecoratedBox(

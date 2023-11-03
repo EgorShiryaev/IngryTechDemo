@@ -11,10 +11,9 @@ class LocationPointView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
+    final theme = Theme.of(context);
     final locationCoordsTextStyle =
-        textTheme.bodySmall?.copyWith(color: const Color(0xFF8A8E8F));
+        theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.outline);
     final locationCoords = '${location.latitude} ${location.longitude}';
     return InkWell(
       onTap: () {

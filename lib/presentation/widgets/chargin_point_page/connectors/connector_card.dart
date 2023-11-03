@@ -22,20 +22,20 @@ class ConnectorCard extends StatelessWidget {
     final priceText = convertPriceToText(connector.chargingTariff.price);
     final isFree = connector.chargingTariff.price == 0;
     final parkingPriceText = isFree ? 'Бесплатно' : '$priceText₽/кВт*ч';
+    final theme = Theme.of(context);
 
-    final textTheme = Theme.of(context).textTheme;
     final idTextStyle =
-        textTheme.labelMedium?.copyWith(color: const Color(0xFF8A8E8F));
-    final priceTextStyle =
-        textTheme.bodySmall?.copyWith(color: const Color(0xFF000000));
-    final descriptionTextStyle = textTheme.titleSmall?.copyWith(
-      color: const Color(0xFF000000),
+        theme.textTheme.labelMedium?.copyWith(color: theme.colorScheme.outline);
+    final priceTextStyle = theme.textTheme.bodySmall
+        ?.copyWith(color: theme.colorScheme.onBackground);
+    final descriptionTextStyle = theme.textTheme.titleSmall?.copyWith(
+      color: theme.colorScheme.onBackground,
       fontWeight: FontWeight.w500,
     );
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(12)),
-        border: Border.all(color: const Color(0xFFDEDEDE)),
+        border: Border.all(color: theme.colorScheme.outlineVariant),
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {

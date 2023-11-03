@@ -4,6 +4,18 @@ import 'rounded_navigation_bar_theme_data.dart';
 
 class AppTheme {
   static ThemeData get light {
+    const colorScheme = ColorScheme.light(
+      background: Color(0xFFFFFFFF),
+      onBackground: Color(0xFF000000),
+      primary: Color(0xFFE1E000),
+      primaryContainer: Color(0xFFEBEA00),
+      surface: Color(0xFFFFFFFF),
+      onSurface: Color(0xFF000000),
+      shadow: Color.fromARGB(20, 0, 0, 0),
+      surfaceVariant: Color(0xFFF5F5F5),
+      outline: Color(0xFF8A8E8F),
+      outlineVariant: Color(0x204B4B4B),
+    );
     const textTheme = TextTheme(
       headlineSmall: TextStyle(
         fontSize: 24,
@@ -43,33 +55,35 @@ class AppTheme {
       ),
     );
     return ThemeData(
-      scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+      scaffoldBackgroundColor: colorScheme.background,
       fontFamily: 'Roboto',
-      navigationBarTheme: const RoundedNavigationBarThemeData(
+      navigationBarTheme: RoundedNavigationBarThemeData(
         height: 90,
-        backgroundColor: Color(0xFFE1E000),
-        indicatorColor: Color(0xFFEBEA00),
+        backgroundColor: colorScheme.primary,
+        indicatorColor: colorScheme.primaryContainer,
         iconTheme: MaterialStatePropertyAll(
-          IconThemeData(size: 32, color: Color(0xFF000000)),
+          IconThemeData(size: 32, color: colorScheme.onSurface),
         ),
-        indicatorShape: RoundedRectangleBorder(
+        indicatorShape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(15)),
         ),
-        margin: EdgeInsets.fromLTRB(8, 0, 8, 8),
-        borderRadius: BorderRadius.vertical(
+        margin: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+        borderRadius: const BorderRadius.vertical(
           top: Radius.circular(15),
           bottom: Radius.circular(40),
         ),
       ),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFFFFFFFF),
+      appBarTheme: AppBarTheme(
+        backgroundColor: colorScheme.background,
+        foregroundColor: colorScheme.onBackground,
         elevation: 0,
-        foregroundColor: Color(0xFF000000),
         centerTitle: false,
       ),
       searchBarTheme: SearchBarThemeData(
         elevation: const MaterialStatePropertyAll(0),
-        backgroundColor: const MaterialStatePropertyAll(Color(0xFFF5F5F5)),
+        backgroundColor: MaterialStatePropertyAll(
+          colorScheme.surfaceVariant,
+        ),
         constraints: const BoxConstraints.expand(height: 40),
         shape: const MaterialStatePropertyAll(
           RoundedRectangleBorder(
@@ -77,21 +91,25 @@ class AppTheme {
           ),
         ),
         hintStyle: MaterialStatePropertyAll(
-          textTheme.bodyMedium?.copyWith(color: const Color(0xFF8A8E8F)),
+          textTheme.bodyMedium?.copyWith(color: colorScheme.outline),
         ),
         padding: const MaterialStatePropertyAll(
           EdgeInsets.symmetric(horizontal: 12),
         ),
       ),
-      cardTheme: const CardTheme(
-        color: Color(0xFFF5F5F5),
+      cardTheme:  CardTheme(
+        color:  colorScheme.surfaceVariant,
         elevation: 0,
         margin: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(15)),
         ),
       ),
       textTheme: textTheme,
+      colorScheme: colorScheme,
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: colorScheme.primary,
+      ),
     );
   }
 }

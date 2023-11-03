@@ -10,9 +10,9 @@ class LocationDataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final addressTextStyle =
-        textTheme.bodyLarge?.copyWith(color: const Color(0xFF000000));
+    final theme = Theme.of(context);
+    final addressTextStyle = theme.textTheme.bodyLarge
+        ?.copyWith(color: theme.colorScheme.onBackground);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -12,9 +12,9 @@ class ChargingPointLocationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final parkingTextStyle =
-        textTheme.bodyLarge?.copyWith(color: const Color(0xFF000000));
+    final theme = Theme.of(context);
+    final parkingTextStyle = theme.textTheme.bodyLarge
+        ?.copyWith(color: theme.colorScheme.onBackground);
 
     final isFreeParking = location is LocationFullModel &&
         (location as LocationFullModel).isFreeParking;

@@ -11,9 +11,9 @@ class ChargingPointInfoField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final labelTextStyle = textTheme.bodyLarge?.copyWith(
-      color: const Color(0xFF8A8E8F),
+    final theme = Theme.of(context);
+    final labelTextStyle = theme.textTheme.bodyLarge?.copyWith(
+      color: theme.colorScheme.outline,
     );
 
     return Row(
