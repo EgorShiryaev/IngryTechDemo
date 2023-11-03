@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../core/utils/get_min_charging_tariff.dart';
-import 'charging_connector_small_model.dart';
 import 'charging_point_status.dart';
+import 'connector_small_model.dart';
 import 'location_small_model.dart';
 import 'tariff_small_model.dart';
 
@@ -13,22 +13,25 @@ class ChargingPointSmallModel {
   // Id
   final String id;
   // Номер станции
-  final String cpNumber;
+  @JsonKey(name: 'cpNumber')
+  final String number;
   // Тип станции
-  final String cpType;
+  @JsonKey(name: 'cpType')
+  final String type;
   // Статус
+   @JsonKey(name: 'statusId')
   final ChargingPointStatus status;
   // Местонахождение
   final LocationSmallModel location;
   // Зарядки
-  final List<ChargingConnectorSmallModel> connectors;
+  final List<ConnectorSmallModel> connectors;
   // Минимальный тариф зарядки
   late final TariffSmallModel? minChargingTariff;
 
   ChargingPointSmallModel({
     required this.id,
-    required this.cpNumber,
-    required this.cpType,
+    required this.number,
+    required this.type,
     required this.status,
     required this.location,
     required this.connectors,

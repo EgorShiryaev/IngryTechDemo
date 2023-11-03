@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/get_address_with_out_post_code.dart';
-import '../../../data/models/charging_point_small_model.dart';
-import 'charging_point_avatar.dart';
-import 'charging_point_card_chip_bar.dart';
+import '../../../../core/utils/get_address_with_out_post_code.dart';
+import '../../../../data/models/charging_point_small_model.dart';
+import '../charging_point_avatar.dart';
+import '../chips/charging_point_card_chip_bar.dart';
 import 'charging_point_card_info.dart';
 
 class ChargingPointCardContent extends StatelessWidget {
@@ -16,9 +16,9 @@ class ChargingPointCardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        ChargingPointAvatar(cpType: model.cpType),
+        ChargingPointAvatar(type: model.type),
         const SizedBox(width: 12),
         Expanded(
           child: Column(

@@ -3,10 +3,10 @@ import 'package:json_annotation/json_annotation.dart';
 import '../../core/utils/get_charging_tariff.dart';
 import 'tariff_small_model.dart';
 
-part 'charging_connector_small_model.g.dart';
+part 'connector_small_model.g.dart';
 
 @JsonSerializable()
-class ChargingConnectorSmallModel {
+class ConnectorSmallModel {
   // Id
   final String id;
   // Тарифы
@@ -14,13 +14,13 @@ class ChargingConnectorSmallModel {
   // Стоимость зарядки
   late final TariffSmallModel chargingTariff;
 
-  ChargingConnectorSmallModel({
+  ConnectorSmallModel({
     required this.id,
     required this.tariffs,
   }) : chargingTariff = getChargingTariff(tariffs);
 
-  factory ChargingConnectorSmallModel.fromJson(Map<String, dynamic> json) =>
-      _$ChargingConnectorSmallModelFromJson(json);
+  factory ConnectorSmallModel.fromJson(Map<String, dynamic> json) =>
+      _$ConnectorSmallModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ChargingConnectorSmallModelToJson(this);
+  Map<String, dynamic> toJson() => _$ConnectorSmallModelToJson(this);
 }

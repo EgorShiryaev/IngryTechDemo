@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../../core/utils/convert_price_to_text.dart';
+import '../../../../core/utils/convert_price_to_text.dart';
 import 'info_chip.dart';
 
 const black = Color(0xFF000000);

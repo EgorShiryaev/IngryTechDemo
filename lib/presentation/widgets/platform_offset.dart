@@ -1,20 +1,24 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../controllers/platform_notifier.dart';
-import 'is_mobile_indicator.dart';
+import '../../core/utils/is_mobile.dart';
+import '../controllers/platform_info.dart';
 
-class PlatformOffset extends ConsumerWidget {
+const mobileDefaultPadding = EdgeInsets.symmetric(horizontal: 16);
+
+class PlatformOffset extends StatelessWidget {
   final Widget child;
-  const PlatformOffset({super.key, required this.child});
+  final EdgeInsets mobilePadding;
+  const PlatformOffset({
+    super.key,
+    required this.child,
+    EdgeInsets? mobilePadding,
+  }) : mobilePadding = mobilePadding ?? mobileDefaultPadding;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final isMobile = ref.watch(isMobileNotifierProvider);
-
-    if (isMobile) {
+  Widget build(BuildContext context) {
+    if (PlatformInfo.of(context).isMobile) {
       return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: mobilePadding,
         child: child,
       );
     }

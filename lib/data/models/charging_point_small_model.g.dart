@@ -10,14 +10,13 @@ ChargingPointSmallModel _$ChargingPointSmallModelFromJson(
         Map<String, dynamic> json) =>
     ChargingPointSmallModel(
       id: json['id'] as String,
-      cpNumber: json['cpNumber'] as String,
-      cpType: json['cpType'] as String,
-      status: $enumDecode(_$ChargingPointStatusEnumMap, json['status']),
+      number: json['cpNumber'] as String,
+      type: json['cpType'] as String,
+      status: $enumDecode(_$ChargingPointStatusEnumMap, json['statusId']),
       location:
           LocationSmallModel.fromJson(json['location'] as Map<String, dynamic>),
       connectors: (json['connectors']['data'] as List<dynamic>)
-          .map((e) =>
-              ChargingConnectorSmallModel.fromJson(e as Map<String, dynamic>))
+          .map((e) => ConnectorSmallModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -25,17 +24,17 @@ Map<String, dynamic> _$ChargingPointSmallModelToJson(
         ChargingPointSmallModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'cpNumber': instance.cpNumber,
-      'cpType': instance.cpType,
-      'status': _$ChargingPointStatusEnumMap[instance.status]!,
+      'cpNumber': instance.number,
+      'cpType': instance.type,
+      'statusId': _$ChargingPointStatusEnumMap[instance.status]!,
       'location': instance.location,
       'connectors': instance.connectors,
     };
 
 const _$ChargingPointStatusEnumMap = {
-  ChargingPointStatus.operative: 'OPERATIVE',
-  ChargingPointStatus.repair: 'REPAIR',
-  ChargingPointStatus.gettingReadyForLaunch: 'GETTING READY FOR LAUNCH',
-  ChargingPointStatus.inoperative: 'INOPERATIVE',
-  ChargingPointStatus.unsupervised: 'UNSUPERVISED',
+  ChargingPointStatus.operative: 1,
+  ChargingPointStatus.repair: 2,
+  ChargingPointStatus.gettingReadyForLaunch: 3,
+  ChargingPointStatus.inoperative: 4,
+  ChargingPointStatus.unsupervised: 5,
 };

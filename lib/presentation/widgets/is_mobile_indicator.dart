@@ -1,9 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../controllers/platform_notifier.dart';
-
-const double maxMobileWidth = 950;
+import '../../core/utils/is_mobile.dart';
+import '../controllers/platform_info.dart';
 
 class IsMobileIndicator extends ConsumerWidget {
   final Widget child;
@@ -13,13 +12,10 @@ class IsMobileIndicator extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final isMobile = constraints.maxWidth <= maxMobileWidth;
-
-        if (isMobile != ref.watch(isMobileNotifierProvider)) {
-          ref.read(isMobileNotifierProvider.notifier).change(isMobile);
-        }
-
-        return child;
+        return PlatformInfo(
+          isMobile: isMobile(constraints.maxWidth),
+          child: child,
+        );
       },
     );
   }

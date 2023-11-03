@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../mock/charging_point_small_models_mock.dart';
-import 'charging_point_card.dart';
+import 'card/charging_point_card.dart';
 
 class ChargingPointsList extends StatelessWidget {
   const ChargingPointsList({super.key});
@@ -9,6 +9,7 @@ class ChargingPointsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      padding: const EdgeInsets.symmetric(vertical: 16),
       itemBuilder: (context, index) {
         final model = chargingPointSmallModelsMock[index];
         return ChargingPointCard(model: model);
